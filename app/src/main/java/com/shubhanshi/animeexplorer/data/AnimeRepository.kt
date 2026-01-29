@@ -4,6 +4,7 @@ import com.shubhanshi.animeexplorer.data.local.dao.AnimeDao
 import com.shubhanshi.animeexplorer.data.mapper.toDomain
 import com.shubhanshi.animeexplorer.data.mapper.toEntity
 import com.shubhanshi.animeexplorer.data.remote.api.JikanApiService
+import com.shubhanshi.animeexplorer.data.remote.dto.AnimeDetailsDto
 import com.shubhanshi.animeexplorer.domain.model.Anime
 
 class AnimeRepository(
@@ -18,5 +19,9 @@ class AnimeRepository(
         } else {
             dao.getAllAnime().map { it.toDomain() }
         }
+    }
+
+    suspend fun getAnimeDetails(animeId:Int): AnimeDetailsDto {
+        return api.getAnimeDetails(animeId).data
     }
 }

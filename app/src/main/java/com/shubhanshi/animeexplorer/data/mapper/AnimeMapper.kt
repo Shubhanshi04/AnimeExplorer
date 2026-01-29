@@ -5,11 +5,11 @@ import com.shubhanshi.animeexplorer.data.remote.dto.AnimeDto
 import com.shubhanshi.animeexplorer.domain.model.Anime
 
 fun AnimeDto.toDomain() = Anime(
-    id = id,
+    id = mal_id,
     title = title,
-    imageURL = images.jpg.image_url,
+    imageURL = images?.jpg?.image_url ?: "",
     rating = score,
-    episodes = episodes
+    episodes = episodes ?: 0
 )
 
 fun AnimeEntity.toDomain() = Anime(
