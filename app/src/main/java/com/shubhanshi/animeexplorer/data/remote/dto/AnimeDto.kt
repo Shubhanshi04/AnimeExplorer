@@ -3,7 +3,7 @@ package com.shubhanshi.animeexplorer.data.remote.dto
 data class AnimeDto(
     val id: Int,
     val title: String,
-    val episodes: Int?,
+    val episodes: Int,
     val score: Double?,
     val images: ImagesDto
 )
