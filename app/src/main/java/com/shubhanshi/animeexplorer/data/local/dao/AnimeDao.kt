@@ -1,6 +1,8 @@
 package com.shubhanshi.animeexplorer.data.local.dao
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.shubhanshi.animeexplorer.data.local.entity.AnimeEntity
 
@@ -8,4 +10,7 @@ import com.shubhanshi.animeexplorer.data.local.entity.AnimeEntity
 interface AnimeDao {
     @Query("SELECT * FROM anime")
     suspend fun getAllAnime() : List<AnimeEntity>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertAnime(anime: List<AnimeEntity>)
 }
